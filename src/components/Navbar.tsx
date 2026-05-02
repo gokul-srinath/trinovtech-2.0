@@ -25,7 +25,7 @@ export default function Navbar() {
       <div className="flex h-[68px] items-center gap-2 px-4 sm:px-5">
 
         {/* Logo */}
-        <a href="#home" className="flex shrink-0 items-center">
+        <a href="/" className="flex shrink-0 items-center">
           <span
             className="flex h-11 w-11 items-center justify-center"
             style={{ transform: `rotate(${rotation}deg)`, transition: 'transform 0.1s linear' }}
@@ -55,7 +55,7 @@ export default function Navbar() {
 
         {/* CTA */}
         <a
-          href="#contact"
+          href="contact"
           className="ml-auto hidden rounded-[10px] bg-[#1f7a63] px-5 py-2.5 text-[15px] font-semibold text-white transition hover:bg-[#196749] md:inline-flex"
         >
           Contact Us
