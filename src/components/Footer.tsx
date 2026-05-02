@@ -42,7 +42,7 @@ export default function Footer() {
                     <div className="flex flex-col gap-10 lg:flex-row lg:justify-between">
 
                         {/* Contact cards */}
-                        <div className="flex flex-col gap-3 w-[320px] shrink-0">
+                        <div className="flex flex-col gap-3 w-full max-w-[320px] shrink-0">
                             {contactItems.map((item) => (
                                 <a
                                     key={item.href}
@@ -67,7 +67,7 @@ export default function Footer() {
                         </div>
 
                         {/* Nav columns */}
-                        <div className="grid grid-cols-3 gap-12 lg:self-start w-[700px]">
+                        <div className="grid grid-cols-3 gap-6 lg:self-start w-full lg:w-[700px]">
                             <div>
                                 <p className="mb-4 text-sm font-semibold tracking-widest" style={{ color: '#8fa3b1' }}>Headings</p>
                                 <ul>

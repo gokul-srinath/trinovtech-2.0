@@ -54,7 +54,7 @@ export function CtaBanner({ heading, description, features = [] }: CtaBannerProp
 
         {/* Feature pills */}
         {features.length > 0 && (
-          <div className="flex flex-wrap justify-center gap-4">
+          <div className="flex flex-wrap justify-center gap-3">
             {features.map((f, i) => (
               <div
                 key={i}
@@ -62,10 +62,10 @@ export function CtaBanner({ heading, description, features = [] }: CtaBannerProp
                 style={{
                   background: '#fff',
                   borderRadius: '15px',
-                  padding: '20px 18px',
-                  minWidth: '140px',
-                  flex: '1 1 140px',
+                  padding: '16px 12px',
+                  flex: '1 1 120px',
                   maxWidth: '180px',
+                  minWidth: '100px',
                 }}
               >
                 <img

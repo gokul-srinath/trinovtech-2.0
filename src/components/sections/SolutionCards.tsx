@@ -29,7 +29,8 @@ export function SolutionCards({ cards }: SolutionCardsProps) {
             className="relative flex flex-col overflow-hidden"
             style={{
               maxWidth: '100%',
-              height: '600px',
+              minHeight: '400px',
+              height: 'clamp(400px, 50vw, 600px)',
               borderRadius: '30px',
               background: card.bgColor,
               boxShadow: '-1px -1px 4px 0 rgba(0,0,0,0.25), 1px 1px 4px 0 rgba(0,0,0,0.25)',

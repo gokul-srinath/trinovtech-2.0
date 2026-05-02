@@ -14,25 +14,25 @@ export function QuoteCard({
   assetPath,
 }: QuoteCardProps) {
   return (
-    <section className="w-full py-8">
+    <section className="w-full py-6">
       <div
-        className="mx-auto flex flex-col lg:flex-row items-center gap-10 rounded-[30px] overflow-hidden"
+        className="mx-auto flex flex-col lg:flex-row items-center gap-8 rounded-[30px] overflow-hidden"
         style={{
           width: 'min(95%, 1100px)',
           background: '#F5F5F5',
           boxShadow: '-1px -1px 4px 0 rgba(0,0,0,0.25), 1px 1px 4px 0 rgba(0,0,0,0.25)',
-          padding: '50px 49.5px',
+          padding: 'clamp(28px, 5vw, 50px) clamp(20px, 4.5vw, 49.5px)',
         }}
       >
         {/* Left: quote + CTA */}
-        <div className="flex-1 flex flex-col gap-6">
+        <div className="w-full lg:flex-1 flex flex-col gap-6">
           <h2
             style={{
               color: '#1F7A63',
               fontFamily: 'Poppins, sans-serif',
-              fontSize: 'clamp(24px, 3vw, 40px)',
+              fontSize: 'clamp(20px, 3vw, 40px)',
               fontWeight: 700,
-              lineHeight: '52px',
+              lineHeight: '1.4',
               letterSpacing: '-0.312px',
               textTransform: 'capitalize',
             }}
@@ -71,7 +71,7 @@ export function QuoteCard({
 
         {/* Right: image */}
         {assetPath && (
-          <div className="flex-1 flex items-center justify-center lg:justify-end">
+          <div className="w-full lg:flex-1 flex items-center justify-center lg:justify-end">
             <Image
               src={assetPath}
               alt="Quote visual"

@@ -23,7 +23,7 @@ const contactItems = [
 
 export default function ContactPage() {
   return (
-    <main className="flex flex-col sm:flex-row gap-6 items-center justify-center px-6">
+    <main className="flex flex-col sm:flex-row flex-wrap gap-6 items-center justify-center px-6 py-8">
       {contactItems.map((item) => (
         <a
           key={item.href}
@@ -34,8 +34,8 @@ export default function ContactPage() {
           style={{
             background: '#2E8B57',
             borderRadius: '24px',
-            width: '220px',
-            padding: '36px 24px 32px',
+            width: 'clamp(160px, 28vw, 220px)',
+            padding: 'clamp(24px, 4vw, 36px) clamp(16px, 3vw, 24px)',
             textDecoration: 'none',
             boxShadow: '0 4px 24px rgba(31,122,99,0.18)',
           }}

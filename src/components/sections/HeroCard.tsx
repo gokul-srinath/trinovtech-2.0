@@ -18,18 +18,18 @@ export function HeroCard({
   assetType = 'image',
 }: HeroCardProps) {
   return (
-    <section className="w-full pt-28 pb-16">
-      <div style={{ width: 'min(95%, 1100px)' }} className="mx-auto flex flex-col lg:flex-row items-center gap-12">
+    <section className="w-full pt-28 pb-10">
+      <div style={{ width: 'min(95%, 1100px)' }} className="mx-auto flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
 
         {/* Left: text content */}
-        <div className="flex-1 flex flex-col gap-6">
+        <div className="flex-1 flex flex-col gap-6 text-center lg:text-left items-center lg:items-start">
           <h1
             style={{
               color: '#1A1A1A',
               fontFamily: 'Poppins, sans-serif',
-              fontSize: '64px',
+              fontSize: 'clamp(32px, 5vw, 64px)',
               fontWeight: 700,
-              lineHeight: '71px',
+              lineHeight: 1.109,
               textTransform: 'capitalize',
             }}
             dangerouslySetInnerHTML={{ __html: heading }}

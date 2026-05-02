@@ -20,19 +20,19 @@ export function FeatureCard({
   const imageFirst = imagePosition === 'left'
 
   return (
-    <section className="w-full py-8">
+    <section className="w-full py-6">
       <div
-        className="mx-auto flex flex-col lg:flex-row items-center gap-10 rounded-[30px] overflow-hidden"
+        className="mx-auto flex flex-col lg:flex-row items-center gap-8 rounded-[30px] overflow-hidden"
         style={{
           width: 'min(95%, 1100px)',
           background: '#F5F5F5',
           boxShadow: '-1px -1px 4px 0 rgba(0,0,0,0.25), 1px 1px 4px 0 rgba(0,0,0,0.25)',
-          padding: '50px 49.5px',
+          padding: 'clamp(28px, 5vw, 50px) clamp(20px, 4.5vw, 49.5px)',
         }}
       >
         {/* Image */}
         {assetPath && (
-          <div className={`flex-1 ${imageFirst ? 'lg:order-1' : 'lg:order-2'}`}>
+          <div className={`w-full lg:flex-1 ${imageFirst ? 'lg:order-1' : 'lg:order-2'}`}>
             <Image
               src={assetPath}
               alt={heading}
@@ -44,14 +44,14 @@ export function FeatureCard({
         )}
 
         {/* Content */}
-        <div className={`flex-1 flex flex-col gap-5 ${imageFirst ? 'lg:order-2' : 'lg:order-1'}`}>
+        <div className={`w-full lg:flex-1 flex flex-col gap-5 ${imageFirst ? 'lg:order-2' : 'lg:order-1'}`}>
           <h2
             style={{
               color: '#1A1A1A',
               fontFamily: 'Poppins, sans-serif',
-              fontSize: '40px',
+              fontSize: 'clamp(26px, 4vw, 40px)',
               fontWeight: 700,
-              lineHeight: '50px',
+              lineHeight: '1.3',
               textTransform: 'capitalize',
             }}
           >
