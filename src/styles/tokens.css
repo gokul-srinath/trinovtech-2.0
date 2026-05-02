@@ -1,0 +1,73 @@
+/* Design Tokens — Generated from Figma Design System */
+/* All colors, spacing, and typography defined here */
+/* Update tokens.css to change theme globally */
+
+:root {
+  /* ─── Colors ─── */
+  --heading1: #2d9cdb;
+  --heading1-bg: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.2) 0%,
+    rgba(0, 0, 0, 0.2) 100%
+  ), linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.2) 0%,
+    rgba(0, 0, 0, 0.2) 100%
+  ), linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.2) 0%,
+    rgba(0, 0, 0, 0.2) 100%
+  ), linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.2) 0%,
+    rgba(0, 0, 0, 0.2) 100%
+  ), #2d9cdb;
+
+  /* Heading 2: Teal, used for secondary headings and accents */
+  --color-heading2: #1f7a63;
+
+  /* Body text: Dark charcoal, used for all body copy */
+  --color-body: #1a1a1a;
+
+  /* Card backgrounds: Light blue, used for card/component backgrounds */
+  --color-card: #f0f6ff;
+
+  /* Background: Off-white, used for page background */
+  --color-bg: #faf9f6;
+
+  /* ─── Typography ─── */
+  /* Heading 1: 36px, bold, Inter */
+  --font-heading1-size: 36px;
+  --font-heading1-weight: 700;
+  --font-heading1-family: Inter;
+  --font-heading1-style: normal;
+  --font-heading1-transform: capitalize;
+  --font-heading1-line-height: normal;
+
+  /* Body: 24px, regular, Inter */
+  --font-body-size: 24px;
+  --font-body-weight: 400;
+  --font-body-family: Inter;
+  --font-body-style: normal;
+  --font-body-transform: capitalize;
+  --font-body-line-height: normal;
+
+  /* ─── Spacing Scale ─── */
+  --space-section: 5rem; /* 80px: vertical section padding */
+  --space-gap: 1.5rem; /* 24px: component gap/margin */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+
+  /* ─── Border Radius ─── */
+  --radius-card: 1rem;
+  --radius-btn: 9999px;
+  --radius-sm: 0.25rem;
+
+  /* ─── Typography Font Family ─── */
+  --font-sans: 'Inter', system-ui, sans-serif;
+}
+
+/* Ensure tokens.css is imported in globals.css */
