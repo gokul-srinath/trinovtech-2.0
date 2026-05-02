@@ -15,16 +15,12 @@ export function VideoSection({ videoPath }: VideoSectionProps) {
   return (
     <section
       style={{
-        width: '100vw',
-        height: '100vh',
-        position: 'relative',
+        width: '100%',
+        height: status === 'loading' ? '0px' : '100vh',
         overflow: 'hidden',
+        position: 'relative',
         background: '#000',
-        // Hide until video is ready to avoid flash
-        opacity: status === 'ready' ? 1 : 0,
-        transition: 'opacity 0.6s ease',
-        // Still occupy space while loading so layout doesn't shift
-        display: status === 'error' ? 'none' : 'block',
+        transition: 'height 0.8s cubic-bezier(0.4, 0, 0.2, 1)',
       }}
     >
       <video
@@ -35,7 +31,7 @@ export function VideoSection({ videoPath }: VideoSectionProps) {
         loop
         playsInline
         preload="auto"
-        onCanPlay={() => setStatus('ready')}
+        onCanPlayThrough={() => setStatus('ready')}
         onError={() => setStatus('error')}
         style={{
           position: 'absolute',
@@ -43,6 +39,9 @@ export function VideoSection({ videoPath }: VideoSectionProps) {
           width: '100%',
           height: '100%',
           objectFit: 'cover',
+          opacity: status === 'ready' ? 1 : 0,
+          transform: status === 'ready' ? 'scale(1)' : 'scale(1.04)',
+          transition: 'opacity 0.8s ease, transform 0.8s cubic-bezier(0.4, 0, 0.2, 1)',
         }}
       />
     </section>
