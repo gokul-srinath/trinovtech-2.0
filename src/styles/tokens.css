@@ -69,5 +69,5 @@
   /* ─── Typography Font Family ─── */
   --font-sans: 'Inter', system-ui, sans-serif;
 }
-
+ 
 /* Ensure tokens.css is imported in globals.css */
