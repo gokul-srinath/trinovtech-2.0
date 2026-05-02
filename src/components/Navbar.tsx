@@ -21,7 +21,6 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  // Close menu on outside click
   useEffect(() => {
     if (!menuOpen) return
     const handler = () => setMenuOpen(false)
@@ -30,10 +29,8 @@ export default function Navbar() {
   }, [menuOpen])
 
   return (
-    <header className="fixed left-1/2 top-4 z-50 w-[min(95%,1100px)] -translate-x-1/2 rounded-[14px] border border-[rgba(44,62,145,0.15)] bg-[#eef4fb] shadow-[0_8px_32px_-8px_rgba(15,23,42,0.14)] transition-shadow duration-300">
+    <header className="fixed left-1/2 top-4 z-50 w-[90%] sm:w-[80%] xl:w-[1320px] max-w-[1320px] -translate-x-1/2 rounded-[14px] border border-[rgba(44,62,145,0.15)] bg-[#eef4fb] shadow-[0_8px_32px_-8px_rgba(15,23,42,0.14)] transition-shadow duration-300">
       <div className="flex h-[68px] items-center gap-2 px-4 sm:px-5">
-
-        {/* Logo */}
         <a href="/" className="flex shrink-0 items-center">
           <span
             className="flex h-11 w-11 items-center justify-center"
@@ -43,7 +40,6 @@ export default function Navbar() {
           </span>
         </a>
 
-        {/* Desktop nav links */}
         <nav className="hidden flex-1 items-center justify-start gap-1 md:flex">
           {navItems.map((item) => (
             <a
@@ -56,7 +52,6 @@ export default function Navbar() {
           ))}
         </nav>
 
-        {/* Desktop CTA */}
         <a
           href="/contact"
           className="ml-auto hidden rounded-[10px] bg-[#1f7a63] px-5 py-2.5 text-[15px] font-semibold text-white transition hover:bg-[#196749] md:inline-flex"
@@ -64,16 +59,11 @@ export default function Navbar() {
           Contact Us
         </a>
 
-        {/* Mobile: hamburger + CTA */}
         <div className="ml-auto flex items-center gap-2 md:hidden">
-          <a
-            href="/contact"
-            className="rounded-[10px] bg-[#1f7a63] px-4 py-2 text-sm font-semibold text-white"
-          >
+          <a href="/contact" className="rounded-[10px] bg-[#1f7a63] px-4 py-2 text-sm font-semibold text-white">
             Contact Us
           </a>
 
-          {/* Hamburger button */}
           <button
             onClick={(e) => { e.stopPropagation(); setMenuOpen((v) => !v) }}
             className="flex h-9 w-9 flex-col items-center justify-center gap-[5px] rounded-lg transition-colors hover:bg-[rgba(31,122,99,0.08)]"
@@ -95,7 +85,6 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile dropdown */}
       <div
         className="overflow-hidden transition-all duration-300 md:hidden"
         style={{ maxHeight: menuOpen ? '320px' : '0px' }}

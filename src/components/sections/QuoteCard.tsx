@@ -14,17 +14,8 @@ export function QuoteCard({
   assetPath,
 }: QuoteCardProps) {
   return (
-    <section className="w-full py-6">
-      <div
-        className="mx-auto flex flex-col lg:flex-row items-center gap-8 rounded-[30px] overflow-hidden"
-        style={{
-          width: 'min(95%, 1100px)',
-          background: '#F5F5F5',
-          boxShadow: '-1px -1px 4px 0 rgba(0,0,0,0.25), 1px 1px 4px 0 rgba(0,0,0,0.25)',
-          padding: 'clamp(28px, 5vw, 50px) clamp(20px, 4.5vw, 49.5px)',
-        }}
-      >
-        {/* Left: quote + CTA */}
+    <section className="w-full py-8">
+      <div className="w-[90%] sm:w-[80%] xl:w-[1320px] max-w-[1320px] mx-auto flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
         <div className="w-full lg:flex-1 flex flex-col gap-6">
           <h2
             style={{
@@ -58,18 +49,10 @@ export function QuoteCard({
               <span className="relative z-10 group-hover:tracking-wide transition-all duration-300">
                 {ctaLabel}
               </span>
-              <svg
-                className="relative z-10 w-4 h-4 transition-all duration-300 group-hover:translate-x-1"
-                fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}
-              >
-                <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" fill="none" />
-                <path strokeLinecap="round" strokeLinejoin="round" d="M10 8l4 4-4 4" />
-              </svg>
             </a>
           )}
         </div>
 
-        {/* Right: image */}
         {assetPath && (
           <div className="w-full lg:flex-1 flex items-center justify-center lg:justify-end">
             <Image

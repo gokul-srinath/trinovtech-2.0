@@ -19,10 +19,7 @@ interface SolutionCardsProps {
 export function SolutionCards({ cards }: SolutionCardsProps) {
   return (
     <section className="w-full py-8">
-      <div
-        style={{ width: 'min(95%, 1100px)' }}
-        className="mx-auto flex flex-col lg:flex-row gap-6"
-      >
+      <div className="w-[90%] sm:w-[80%] xl:w-[1320px] max-w-[1320px] mx-auto flex flex-col lg:flex-row gap-6">
         {cards.map((card, idx) => (
           <div
             key={idx}
@@ -37,7 +34,6 @@ export function SolutionCards({ cards }: SolutionCardsProps) {
               flex: '1 1 0',
             }}
           >
-            {/* Content top */}
             <div className="flex flex-col gap-4 p-10 z-10">
               <h3
                 style={{
@@ -58,12 +54,14 @@ export function SolutionCards({ cards }: SolutionCardsProps) {
                   lineHeight: '22px',
                   color: card.textColor ?? '#1A1A1A',
                   opacity: 0.8,
-                  maxWidth: '320px',
+                  // maxWidth: '320px',
                 }}
               >
                 {card.description}
               </p>
+              
               {card.ctaLabel && (
+                <span style={{ borderBottom: '1px solid', borderBottomColor: card.headingColor ?? '#1A1A1A', width: 'fit-content' }}>
                 <a
                   href={card.ctaHref ?? '#'}
                   className="group inline-flex items-center gap-1 text-sm font-semibold transition-all duration-200 hover:gap-2"
@@ -75,10 +73,10 @@ export function SolutionCards({ cards }: SolutionCardsProps) {
                   {card.ctaLabel}
                   <span className="transition-transform duration-200 group-hover:translate-x-1">→</span>
                 </a>
+                </span>
               )}
             </div>
 
-            {/* Image anchored bottom-right, flush with card edge, behind text */}
             {card.assetPath && (
               <div
                 className="absolute bottom-0 right-0 z-0"

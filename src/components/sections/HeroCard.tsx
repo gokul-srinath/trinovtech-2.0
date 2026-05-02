@@ -19,15 +19,13 @@ export function HeroCard({
 }: HeroCardProps) {
   return (
     <section className="w-full pt-28 pb-10">
-      <div style={{ width: 'min(95%, 1100px)' }} className="mx-auto flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
-
-        {/* Left: text content */}
+      <div className="w-[90%] sm:w-[80%] xl:w-[1320px] max-w-[1320px] mx-auto flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
         <div className="flex-1 flex flex-col gap-6 text-center lg:text-left items-center lg:items-start">
           <h1
             style={{
               color: '#1A1A1A',
               fontFamily: 'Poppins, sans-serif',
-              fontSize: 'clamp(32px, 5vw, 64px)',
+              fontSize: 'clamp(28px, 5vw, 56px)',
               fontWeight: 700,
               lineHeight: 1.109,
               textTransform: 'capitalize',
@@ -68,20 +66,19 @@ export function HeroCard({
               <span className="relative z-10 group-hover:tracking-wide transition-all duration-300">
                 {ctaLabel}
               </span>
-              <svg
-                className="relative z-10 w-4 h-4 transition-all duration-300 group-hover:translate-x-1"
-                fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}
-              >
-                <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" fill="none" />
-                <path strokeLinecap="round" strokeLinejoin="round" d="M10 8l4 4-4 4" />
-              </svg>
+              <Image
+                src="/Vector.svg"
+                alt=""
+                width={20}
+                height={20}
+                className="relative z-10 transition-transform duration-300 group-hover:translate-x-1"
+              />
             </a>
           )}
         </div>
 
-        {/* Right: image */}
         {assetPath && assetType === 'image' && (
-          <div className="flex-1 flex items-center justify-center lg:justify-end">
+          <div className="hidden lg:flex flex-1 items-center justify-end">
             <Image
               src={assetPath}
               alt="Hero"
@@ -102,7 +99,6 @@ export function HeroCard({
             />
           </div>
         )}
-
       </div>
     </section>
   )

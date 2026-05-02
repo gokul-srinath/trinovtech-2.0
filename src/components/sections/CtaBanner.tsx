@@ -14,14 +14,12 @@ export function CtaBanner({ heading, description, features = [] }: CtaBannerProp
   return (
     <section className="w-full py-8">
       <div
-        className="mx-auto rounded-[30px] overflow-hidden"
+        className="w-[90%] sm:w-[80%] xl:w-[1320px] max-w-[1320px] mx-auto rounded-[30px] overflow-hidden"
         style={{
-          width: 'min(95%, 1100px)',
           background: '#1F7A63',
           padding: '52px 48px 44px',
         }}
       >
-        {/* Heading block */}
         <div className="text-center mb-10">
           <h2
             style={{
@@ -52,20 +50,18 @@ export function CtaBanner({ heading, description, features = [] }: CtaBannerProp
           )}
         </div>
 
-        {/* Feature pills */}
         {features.length > 0 && (
-          <div className="flex flex-wrap justify-center gap-3">
+          <div className="flex flex-wrap justify-center gap-4">
             {features.map((f, i) => (
               <div
                 key={i}
-                className="flex flex-col items-center gap-2 text-center"
+                className="flex flex-col items-center justify-center gap-2 text-center"
                 style={{
                   background: '#fff',
                   borderRadius: '15px',
-                  padding: '16px 12px',
-                  flex: '1 1 120px',
-                  maxWidth: '180px',
-                  minWidth: '100px',
+                  padding: '20px 16px',
+                  flex: '1 1 0',
+                  minWidth: '140px',
                 }}
               >
                 <img
