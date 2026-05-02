@@ -1,38 +1,104 @@
-/**
- * CtaBanner Component
- * Full-width call-to-action banner
- */
+interface CtaFeature {
+  iconPath: string
+  label: string
+  sublabel: string
+}
 
 interface CtaBannerProps {
   heading: string
   description?: string
-  ctaLabel?: string
-  ctaHref?: string
-  backgroundColor?: 'heading1' | 'heading2' | 'body'
+  features?: CtaFeature[]
 }
 
-export function CtaBanner({
-  heading,
-  description,
-  ctaLabel,
-  ctaHref = '#',
-  backgroundColor = 'heading2',
-}: CtaBannerProps) {
-  const bgClass = {
-    heading1: 'bg-heading1',
-    heading2: 'bg-heading2',
-    body: 'bg-body',
-  }[backgroundColor]
-
+export function CtaBanner({ heading, description, features = [] }: CtaBannerProps) {
   return (
-    <section className={`section py-section ${bgClass}`}>
-      <div className="max-w-6xl mx-auto px-gap text-center text-white space-y-gap">
-        <h2 className="text-3xl md:text-4xl font-bold">{heading}</h2>
-        {description && <p className="text-lg opacity-90">{description}</p>}
-        {ctaLabel && (
-          <a href={ctaHref} className="btn btn-primary inline-block">
-            {ctaLabel}
-          </a>
+    <section className="w-full py-8">
+      <div
+        className="mx-auto rounded-[30px] overflow-hidden"
+        style={{
+          width: 'min(95%, 1100px)',
+          background: '#1F7A63',
+          padding: '52px 48px 44px',
+        }}
+      >
+        {/* Heading block */}
+        <div className="text-center mb-10">
+          <h2
+            style={{
+              color: '#fff',
+              fontFamily: 'Poppins, sans-serif',
+              fontSize: 'clamp(22px, 3vw, 32px)',
+              fontWeight: 700,
+              lineHeight: '1.3',
+              textTransform: 'capitalize',
+              marginBottom: '12px',
+            }}
+          >
+            {heading}
+          </h2>
+          {description && (
+            <p
+              style={{
+                color: 'rgba(255,255,255,0.8)',
+                fontFamily: 'Poppins, sans-serif',
+                fontSize: '14px',
+                lineHeight: '22px',
+                maxWidth: '520px',
+                margin: '0 auto',
+              }}
+            >
+              {description}
+            </p>
+          )}
+        </div>
+
+        {/* Feature pills */}
+        {features.length > 0 && (
+          <div className="flex flex-wrap justify-center gap-4">
+            {features.map((f, i) => (
+              <div
+                key={i}
+                className="flex flex-col items-center gap-2 text-center"
+                style={{
+                  background: '#fff',
+                  borderRadius: '15px',
+                  padding: '20px 18px',
+                  minWidth: '140px',
+                  flex: '1 1 140px',
+                  maxWidth: '180px',
+                }}
+              >
+                <img
+                  src={f.iconPath}
+                  alt={f.label}
+                  style={{ minWidth: '70px', minHeight: '70px', objectFit: 'contain' }}
+                />
+                <span
+                  style={{
+                    color: '#1F7A63',
+                    fontFamily: 'Poppins, sans-serif',
+                    fontSize: '13px',
+                    fontWeight: 600,
+                    lineHeight: '18px',
+                  }}
+                >
+                  {f.label}
+                </span>
+                {f.sublabel && (
+                  <span
+                    style={{
+                      color: 'rgba(31,122,99,0.7)',
+                      fontFamily: 'Poppins, sans-serif',
+                      fontSize: '11px',
+                      lineHeight: '16px',
+                    }}
+                  >
+                    {f.sublabel}
+                  </span>
+                )}
+              </div>
+            ))}
+          </div>
         )}
       </div>
     </section>

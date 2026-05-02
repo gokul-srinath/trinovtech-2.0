@@ -1,8 +1,4 @@
-/**
- * HeroCard Component
- * Full-width hero section with heading, subtext, CTA, and optional asset
- * Appears above the fold — always renders (not lazy-loaded)
- */
+import Image from 'next/image'
 
 interface HeroCardProps {
   heading: string
@@ -22,44 +18,91 @@ export function HeroCard({
   assetType = 'image',
 }: HeroCardProps) {
   return (
-    <section className="section bg-gradient-to-br from-card via-bg to-bg min-h-screen flex items-center justify-center">
-      <div className="max-w-6xl mx-auto px-gap grid grid-cols-1 md:grid-cols-2 gap-section items-center">
-        {/* Content */}
-        <div className="space-y-gap">
-          <h1 className="text-heading1 text-4xl md:text-5xl leading-tight">
-            {heading && <div dangerouslySetInnerHTML={{ __html: heading }} />}
-          </h1>
+    <section className="w-full py-16">
+      <div style={{ width: 'min(95%, 1100px)' }} className="mx-auto flex flex-col lg:flex-row items-center gap-12">
+
+        {/* Left: text content */}
+        <div className="flex-1 flex flex-col gap-6">
+          <h1
+            style={{
+              color: '#1A1A1A',
+              fontFamily: 'Poppins, sans-serif',
+              fontSize: '64px',
+              fontWeight: 700,
+              lineHeight: '71px',
+              textTransform: 'capitalize',
+            }}
+            dangerouslySetInnerHTML={{ __html: heading }}
+          />
+
           {subtext && (
-            <p className="text-body text-lg text-body opacity-80">{subtext}</p>
+            <p
+              style={{
+                color: '#1A1A1A',
+                fontFamily: 'Poppins, sans-serif',
+                fontSize: '16px',
+                fontWeight: 400,
+                lineHeight: '26px',
+                opacity: 0.7,
+                maxWidth: '480px',
+              }}
+            >
+              {subtext}
+            </p>
           )}
+
           {ctaLabel && (
-            <a href={ctaHref} className="btn btn-primary inline-block">
-              {ctaLabel}
+            <a
+              href={ctaHref}
+              className="group relative inline-flex items-center gap-2 overflow-hidden rounded-[12px] px-7 py-3.5 text-white font-semibold text-base transition-all duration-300"
+              style={{
+                backgroundColor: '#1A1A1A',
+                fontFamily: 'Poppins, sans-serif',
+                width: 'fit-content',
+              }}
+            >
+              <span
+                className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-500 ease-in-out"
+                style={{ background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent)' }}
+              />
+              <span className="relative z-10 group-hover:tracking-wide transition-all duration-300">
+                {ctaLabel}
+              </span>
+              <svg
+                className="relative z-10 w-4 h-4 transition-all duration-300 group-hover:translate-x-1"
+                fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}
+              >
+                <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" fill="none" />
+                <path strokeLinecap="round" strokeLinejoin="round" d="M10 8l4 4-4 4" />
+              </svg>
             </a>
           )}
         </div>
 
-        {/* Asset */}
-        {assetPath && (
-          <div className="flex items-center justify-center">
-            {assetType === 'image' ? (
-              <img
-                src={assetPath}
-                alt="Hero asset"
-                className="w-full h-auto rounded-card shadow-lg"
-              />
-            ) : (
-              <video
-                src={assetPath}
-                className="w-full h-auto rounded-card shadow-lg"
-                autoPlay
-                muted
-                loop
-                playsInline
-              />
-            )}
+        {/* Right: image */}
+        {assetPath && assetType === 'image' && (
+          <div className="flex-1 flex items-center justify-center lg:justify-end">
+            <Image
+              src={assetPath}
+              alt="Hero"
+              width={560}
+              height={460}
+              className="w-full max-w-[520px] h-auto object-contain rounded-2xl"
+              priority
+            />
           </div>
         )}
+
+        {assetPath && assetType === 'video' && (
+          <div className="flex-1 flex items-center justify-end">
+            <video
+              src={assetPath}
+              className="w-full max-w-[520px] h-auto rounded-2xl"
+              autoPlay muted loop playsInline
+            />
+          </div>
+        )}
+
       </div>
     </section>
   )

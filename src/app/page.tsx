@@ -3,7 +3,7 @@ import { homeSections } from '@/content/home'
 
 export default function Home() {
   return (
-    <main className="pt-24">
+    <main>
       <SectionRenderer sections={homeSections} />
     </main>
   )

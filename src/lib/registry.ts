@@ -13,6 +13,12 @@ export const REGISTRY = {
   feature_card: dynamic(() =>
     import('@/components/sections/FeatureCard').then((mod) => mod.FeatureCard)
   ),
+  solution_cards: dynamic(() =>
+    import('@/components/sections/SolutionCards').then((mod) => mod.SolutionCards)
+  ),
+  quote_card: dynamic(() =>
+    import('@/components/sections/QuoteCard').then((mod) => mod.QuoteCard)
+  ),
   services_grid: dynamic(() =>
     import('@/components/sections/ServicesGrid').then((mod) => mod.ServicesGrid)
   ),

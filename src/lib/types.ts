@@ -12,6 +12,8 @@ export interface Section {
 export type SectionType =
   | 'hero_card'
   | 'feature_card'
+  | 'solution_cards'
+  | 'quote_card'
   | 'services_grid'
   | 'scroll_scrub'
   | 'video_section'

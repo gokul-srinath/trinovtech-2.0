@@ -41,7 +41,13 @@ export function ServicesGrid({
             <a
               key={idx}
               href={item.href || '#'}
-              className="card hover:shadow-lg transition-shadow"
+              className="flex flex-col transition-shadow hover:shadow-xl"
+              style={{
+                padding: '50px 49.5px',
+                borderRadius: '30px',
+                background: '#F5F5F5',
+                boxShadow: '-1px -1px 4px 0 rgba(0,0,0,0.25), 1px 1px 4px 0 rgba(0,0,0,0.25)',
+              }}
             >
               {item.assetPath && (
                 <img
