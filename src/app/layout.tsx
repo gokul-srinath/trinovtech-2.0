@@ -17,7 +17,7 @@ export default function RootLayout({
     <html lang="en">
       <body className="min-h-screen text-body" style={{ backgroundColor: '#EDFFE4' }}>
         <Navbar />
-        <div className="pt-24">{children}</div>
+        <div>{children}</div>
         <Footer />
       </body>
     </html>

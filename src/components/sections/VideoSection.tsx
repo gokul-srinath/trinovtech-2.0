@@ -1,47 +1,50 @@
-/**
- * VideoSection Component
- * Full-width video with poster image and fallback
- */
+'use client'
+
+import { useState, useRef } from 'react'
 
 interface VideoSectionProps {
-  heading: string
   videoPath: string
-  posterPath: string
-  fallbackImagePath?: string
 }
 
-export function VideoSection({
-  heading,
-  videoPath,
-  posterPath,
-  fallbackImagePath,
-}: VideoSectionProps) {
-  return (
-    <section className="section py-section">
-      <div className="max-w-6xl mx-auto px-gap">
-        <h2 className="text-heading1 text-3xl md:text-4xl text-center mb-section">
-          {heading}
-        </h2>
+export function VideoSection({ videoPath }: VideoSectionProps) {
+  const [status, setStatus] = useState<'loading' | 'ready' | 'error'>('loading')
+  const videoRef = useRef<HTMLVideoElement>(null)
 
-        <div className="relative w-full bg-black rounded-card overflow-hidden">
-          <video
-            controls
-            poster={posterPath}
-            className="w-full h-auto"
-            playsInline
-          >
-            <source src={videoPath} type="video/mp4" />
-            {fallbackImagePath && (
-              <img
-                src={fallbackImagePath}
-                alt={heading}
-                className="w-full h-auto"
-              />
-            )}
-            Your browser does not support the video tag.
-          </video>
-        </div>
-      </div>
+  if (status === 'error') return null
+
+  return (
+    <section
+      style={{
+        width: '100vw',
+        height: '100vh',
+        position: 'relative',
+        overflow: 'hidden',
+        background: '#000',
+        // Hide until video is ready to avoid flash
+        opacity: status === 'ready' ? 1 : 0,
+        transition: 'opacity 0.6s ease',
+        // Still occupy space while loading so layout doesn't shift
+        display: status === 'error' ? 'none' : 'block',
+      }}
+    >
+      <video
+        ref={videoRef}
+        src={videoPath}
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+        onCanPlay={() => setStatus('ready')}
+        onError={() => setStatus('error')}
+        style={{
+          position: 'absolute',
+          inset: 0,
+          width: '100%',
+          height: '100%',
+          objectFit: 'cover',
+        }}
+      />
     </section>
   )
 }

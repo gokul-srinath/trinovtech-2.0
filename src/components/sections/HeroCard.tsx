@@ -18,7 +18,7 @@ export function HeroCard({
   assetType = 'image',
 }: HeroCardProps) {
   return (
-    <section className="w-full py-16">
+    <section className="w-full pt-28 pb-16">
       <div style={{ width: 'min(95%, 1100px)' }} className="mx-auto flex flex-col lg:flex-row items-center gap-12">
 
         {/* Left: text content */}

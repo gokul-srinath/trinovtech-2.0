@@ -8,6 +8,13 @@ import type { Section } from '@/lib/types'
 
 export const homeSections: Section[] = [
   {
+    id: 'intro-video',
+    type: 'video_section',
+    props: {
+      videoPath: '/videos/magnific_create-moving-image_2893769832.mp4',
+    },
+  },
+  {
     id: 'hero',
     type: 'hero_card',
     props: {
