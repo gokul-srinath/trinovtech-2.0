@@ -13,7 +13,7 @@ export function AboutUsCard({ heading, text, imagePath, invert = false }: AboutU
     <section className="w-full py-12">
       <Container>
         <div
-          className={`flex flex-col gap-10 items-center ${
+          className={`flex flex-col gap-28 items-center ${
             invert ? 'md:flex-row-reverse' : 'md:flex-row'
           }`}
         >
@@ -41,12 +41,12 @@ export function AboutUsCard({ heading, text, imagePath, invert = false }: AboutU
           
 
           {/* Text block */}
-          <div className="flex flex-col gap-4 md:w-[55%]">
+          <div className="flex flex-col gap-8 md:w-[55%]">
             <h2
               style={{
                 color: 'var(--color-heading2)',
                 fontFamily: 'Poppins, sans-serif',
-                fontSize: 'var(--text-h2)',
+                fontSize: 'var(--text-h1)',
                 fontWeight: 700,
                 lineHeight: 1.3,
               }}
@@ -56,10 +56,11 @@ export function AboutUsCard({ heading, text, imagePath, invert = false }: AboutU
             <p
               style={{
                 color: 'var(--color-heading2)',
-                fontFamily: 'Poppins, sans-serif',
-                fontSize: '16px',
-                fontWeight: 600,
+                fontFamily: 'Inter, sans-serif',
+                fontSize: '24px',
+                fontWeight: 700,
                 lineHeight: '1.6',
+                letterSpacing: '1.2px'
               }}
             >
               {text}

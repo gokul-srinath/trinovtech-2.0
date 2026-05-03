@@ -36,6 +36,7 @@
 
   /* ─── Fluid Typography ─── */
   --text-hero:     clamp(2rem,   5vw,  3.5rem);
+  --text-h1: clamp(2rem, 4.5vw, 4rem);
   --text-h2:       clamp(1.5rem, 3.5vw, 2.5rem);
   --text-h3:       clamp(1.125rem, 2vw, 1.5rem);
   --space-section: clamp(3rem,   8vw,  5rem);
