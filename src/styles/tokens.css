@@ -5,6 +5,7 @@
 :root {
   /* ─── Colors ─── */
   --heading1: #12405A;
+  --heading2: #1F7A63;
   --heading1-bg: #12405A, #2d9cdb;
 
   /* Heading 2: Teal, used for secondary headings and accents */

@@ -51,6 +51,12 @@ export const REGISTRY = {
   solutions_card: dynamic(() =>
     import('@/components/sections/SolutionsCard').then((mod) => mod.SolutionsCard)
   ),
+  services_hero: dynamic(() =>
+    import('@/components/sections/ServicesHero').then((mod) => mod.ServicesHero)
+  ),
+  services_carousel: dynamic(() =>
+    import('@/components/sections/ServicesCarousel').then((mod) => mod.ServicesCarousel)
+  ),
 } as const
 
 export type ComponentType = keyof typeof REGISTRY

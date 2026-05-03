@@ -24,6 +24,8 @@ export type SectionType =
   | 'about_us_card'
   | 'solutions_hero'
   | 'solutions_card'
+  | 'services_hero'
+  | 'services_carousel'
 
 /**
  * Image asset with optimization metadata
