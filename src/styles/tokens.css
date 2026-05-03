@@ -4,24 +4,8 @@
 
 :root {
   /* ─── Colors ─── */
-  --heading1: #2d9cdb;
-  --heading1-bg: linear-gradient(
-    0deg,
-    rgba(0, 0, 0, 0.2) 0%,
-    rgba(0, 0, 0, 0.2) 100%
-  ), linear-gradient(
-    0deg,
-    rgba(0, 0, 0, 0.2) 0%,
-    rgba(0, 0, 0, 0.2) 100%
-  ), linear-gradient(
-    0deg,
-    rgba(0, 0, 0, 0.2) 0%,
-    rgba(0, 0, 0, 0.2) 100%
-  ), linear-gradient(
-    0deg,
-    rgba(0, 0, 0, 0.2) 0%,
-    rgba(0, 0, 0, 0.2) 100%
-  ), #2d9cdb;
+  --heading1: #12405A;
+  --heading1-bg: #12405A, #2d9cdb;
 
   /* Heading 2: Teal, used for secondary headings and accents */
   --color-heading2: #1f7a63;

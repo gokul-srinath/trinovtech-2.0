@@ -20,6 +20,8 @@ export type SectionType =
   | 'cta_banner'
   | 'testimonials'
   | 'faq'
+  | 'about_us_hero'
+  | 'about_us_card'
 
 /**
  * Image asset with optimization metadata
