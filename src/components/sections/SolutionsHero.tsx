@@ -10,24 +10,27 @@ interface SolutionsHeroProps {
 export function SolutionsHero({ heading, highlight, tail, imagePath }: SolutionsHeroProps) {
   return (
     <section
-      className="relative w-full flex items-center overflow-hidden pt-24"
-      style={{ minHeight: '94vh', background: '#1f7a63' }}
+      className="w-full flex flex-col md:flex-row items-center overflow-hidden"
+      style={{ minHeight: '90vh', background: '#1f7a63', paddingTop: 'clamp(80px, 12vh, 120px)' }}
     >
       {/* Left — text */}
       <div
-        className="flex-1 flex items-center z-10"
-        style={{ paddingLeft: 'clamp(24px, 8vw, 120px)', paddingRight: '4vw' }}
+        className="flex-1 flex items-center z-10 py-10 md:py-0"
+        style={{
+          paddingLeft: 'clamp(20px, 8vw, 120px)',
+          paddingRight: 'clamp(20px, 4vw, 60px)',
+        }}
       >
         <h1
-         style={{
-  fontFamily: 'Inter, sans-serif',
-  fontSize: 'clamp(1.6rem, 3.5vw, 3rem)',
-  fontWeight: 900,
-  fontStyle: 'normal',
-  lineHeight: 'normal',
-  color: '#EDFFE4',
-  maxWidth: '890px',
-}}
+          style={{
+              fontFamily: 'Inter, sans-serif',
+              fontSize: 'clamp(1.6rem, 3.5vw, 3rem)',
+              fontWeight: 900,
+              fontStyle: 'normal',
+              lineHeight: 'normal',
+              color: '#EDFFE4',
+              maxWidth: '890px',
+          }}
         >
           {heading}{' '}
           <span style={{ color: 'var(--heading1)' }}>{highlight}</span>
@@ -35,17 +38,20 @@ export function SolutionsHero({ heading, highlight, tail, imagePath }: Solutions
         </h1>
       </div>
 
-      {/* Right — image */}
+      {/* Right — image, hidden on mobile */}
       <div
-        className="hidden md:flex shrink-0 items-end"
-        style={{ width: 'clamp(300px, 45vw, 620px)', paddingRight: 'clamp(16px, 4vw, 60px)' }}
+        className="hidden md:flex shrink-0 items-center self-stretch justify-center"
+        style={{
+          width: 'clamp(280px, 44vw, 600px)',
+          paddingRight: 'clamp(16px, 4vw, 60px)',
+        }}
       >
         <Image
           src={imagePath}
           alt="Solutions"
-          width={620}
-          height={500}
-          sizes="45vw"
+          width={600}
+          height={520}
+          sizes="44vw"
           className="w-full h-auto object-contain object-bottom"
           priority
         />

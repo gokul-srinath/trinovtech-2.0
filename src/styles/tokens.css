@@ -34,6 +34,8 @@
   --font-body-transform: capitalize;
   --font-body-line-height: normal;
 
+  --font-btn-size: 20px;
+
   /* ─── Fluid Typography ─── */
   --text-hero:     clamp(2rem,   5vw,  3.5rem);
   --text-h1: clamp(2rem, 4.5vw, 4rem);

@@ -21,22 +21,22 @@ export function SolutionsCard({
   invert = false,
 }: SolutionsCardProps) {
   return (
-    <section className="w-full py-12">
+    <section className="w-full py-10 md:py-16">
       <Container>
         <div
-          className={`flex flex-col gap-10 items-center ${
+          className={`flex flex-col gap-8 items-center mt-12 ${
             invert ? 'md:flex-row-reverse' : 'md:flex-row'
           }`}
         >
           {/* Text block */}
-          <div className="flex flex-col gap-5 md:w-[50%]">
+          <div className="flex flex-col gap-5 w-full md:w-[50%]">
             <h2
               style={{
                 color: 'var(--heading1)',
-                fontFamily: 'Poppins, sans-serif',
-                fontSize: 'var(--text-h2)',
+                fontFamily: 'Inter, sans-serif',
+                fontSize: 'var(--text-h1)',
                 fontWeight: 700,
-                lineHeight: 1.3,
+                textTransform: 'capitalize'
               }}
             >
               {heading}
@@ -44,10 +44,12 @@ export function SolutionsCard({
             <p
               style={{
                 color: 'var(--color-body)',
-                fontFamily: 'Poppins, sans-serif',
-                fontSize: '16px',
-                fontWeight: 400,
-                lineHeight: '1.6',
+                fontFamily: 'Inter, sans-serif',
+                fontSize: 'var(--font-body-size)',
+                fontWeight: 'var(--font-body-weight)',
+                lineHeight: '29px',
+                letterSpacing: '1.2px',
+                textTransform: 'capitalize'
               }}
             >
               {text}
@@ -57,8 +59,10 @@ export function SolutionsCard({
               className="group relative inline-flex items-center gap-2 overflow-hidden rounded-[8px] px-6 py-2.5 text-sm font-semibold text-white transition-all duration-300"
               style={{
                 backgroundColor: ctaColor,
-                fontFamily: 'Poppins, sans-serif',
+                fontFamily: 'Inter, sans-serif',
                 width: 'fit-content',
+                fontSize: 'var(--font-btn-size)',
+                fontWeight: 'var(--font-body-weight)',
               }}
             >
               <span
@@ -71,20 +75,25 @@ export function SolutionsCard({
             </a>
           </div>
 
-          {/* Image block */}
-          <div className="w-full md:w-[50%] shrink-0">
+          {/* Image block — fluid on mobile, 600×600 capped on desktop */}
+          <div className="w-full md:w-[50%] shrink-0 flex justify-center">
             <div
-              className="relative w-full overflow-hidden"
-              style={{ 
+              className="w-full"
+              style={{
                 borderRadius: invert ? '20px 0 0 20px' : '0 20px 20px 0',
-                aspectRatio: '4/3' }}
+                overflow: 'hidden',
+                maxWidth: '600px',
+                /* fluid height: 80vw on mobile, capped at 600px on desktop */
+                height: 'min(80vw, 600px)',
+              }}
             >
               <Image
                 src={imagePath}
                 alt={heading}
-                fill
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover"
+                width={600}
+                height={600}
+                sizes="(max-width: 768px) 90vw, 600px"
+                className="w-full h-full object-contain"
               />
             </div>
           </div>

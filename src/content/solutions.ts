@@ -20,7 +20,7 @@ export const solutionsSections: Section[] = [
       imagePath: '/solutions/img1.png',
       ctaLabel: 'Know More',
       ctaHref: '#embedded-iot',
-      ctaColor: '#2d9cdb',
+      ctaColor: '#118496',
       invert: false,
     },
   },
