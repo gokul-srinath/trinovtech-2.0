@@ -1,14 +1,30 @@
 'use client'
 
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 
 interface VideoSectionProps {
   videoPath: string
+  mobileVideoPath?: string
 }
 
-export function VideoSection({ videoPath }: VideoSectionProps) {
-  const [status, setStatus] = useState<'loading' | 'ready' | 'error'>('loading')
+export function VideoSection({ videoPath, mobileVideoPath }: VideoSectionProps) {
+  const [isMobile, setIsMobile] = useState(false)
   const videoRef = useRef<HTMLVideoElement>(null)
+
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 767px)')
+    setIsMobile(mq.matches)
+    const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches)
+    mq.addEventListener('change', handler)
+    return () => mq.removeEventListener('change', handler)
+  }, [])
+
+  const currentVideoPath = isMobile && mobileVideoPath ? mobileVideoPath : videoPath
+  const [status, setStatus] = useState<'loading' | 'ready' | 'error'>('loading')
+
+  useEffect(() => {
+    setStatus('loading')
+  }, [currentVideoPath])
 
   if (status === 'error') return null
 
@@ -17,6 +33,7 @@ export function VideoSection({ videoPath }: VideoSectionProps) {
       style={{
         width: '100%',
         height: status === 'loading' ? '0px' : '100vh',
+        maxHeight: isMobile ? '558px' : undefined,
         overflow: 'hidden',
         position: 'relative',
         background: '#000',
@@ -25,7 +42,8 @@ export function VideoSection({ videoPath }: VideoSectionProps) {
     >
       <video
         ref={videoRef}
-        src={videoPath}
+        key={currentVideoPath}
+        src={currentVideoPath}
         autoPlay
         muted
         loop
