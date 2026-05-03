@@ -6,7 +6,7 @@ import { Container } from '@/components/shared/Container'
 
 const navItems = [
   { label: 'About Us', href: '/about-us' },
-  { label: 'Solutions', href: '#solutions' },
+  { label: 'Solutions', href: '/solutions' },
   { label: 'Services', href: '#services' },
   { label: 'Career', href: '#career' },
   { label: 'Blogs', href: '#blogs' },

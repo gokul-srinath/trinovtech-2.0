@@ -22,6 +22,8 @@ export type SectionType =
   | 'faq'
   | 'about_us_hero'
   | 'about_us_card'
+  | 'solutions_hero'
+  | 'solutions_card'
 
 /**
  * Image asset with optimization metadata
