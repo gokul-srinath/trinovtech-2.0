@@ -19,23 +19,26 @@ export function AboutUsCard({ heading, text, imagePath, invert = false }: AboutU
         >
           {/* Image block */}
           <div className="w-full md:w-[45%] shrink-0">
-            <div
-              className="relative w-full overflow-hidden"
-              style={{
-                borderRadius: '20px',
-                background: '#8BC926',
-                aspectRatio: '4/3',
-              }}
-            >
-              <Image
-                src={imagePath}
-                alt={heading}
-                fill
-                sizes="(max-width: 768px) 100vw, 45vw"
-                className="object-cover"
-              />
-            </div>
-          </div>
+  <div
+    className="relative w-full overflow-hidden flex flex-col justify-end items-center"
+    style={{
+      borderRadius: '20px',
+      background: '#8BC926',
+      minHeight: '400px',
+      paddingTop: '158px',
+    }}
+  >
+    <Image
+      src={imagePath}
+      alt={heading}
+      width={600}
+      height={400}
+      sizes="(max-width: 768px) 100vw, 45vw"
+      className="w-full h-auto object-contain object-bottom"
+    />
+  </div>
+</div>
+          
 
           {/* Text block */}
           <div className="flex flex-col gap-4 md:w-[55%]">
