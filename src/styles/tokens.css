@@ -36,7 +36,6 @@
   --color-bg: #faf9f6;
 
   /* ─── Typography ─── */
-  /* Heading 1: 36px, bold, Inter */
   --font-heading1-size: 36px;
   --font-heading1-weight: 700;
   --font-heading1-family: Inter;
@@ -44,13 +43,18 @@
   --font-heading1-transform: capitalize;
   --font-heading1-line-height: normal;
 
-  /* Body: 24px, regular, Inter */
   --font-body-size: 24px;
   --font-body-weight: 400;
   --font-body-family: Inter;
   --font-body-style: normal;
   --font-body-transform: capitalize;
   --font-body-line-height: normal;
+
+  /* ─── Fluid Typography ─── */
+  --text-hero:     clamp(2rem,   5vw,  3.5rem);
+  --text-h2:       clamp(1.5rem, 3.5vw, 2.5rem);
+  --text-h3:       clamp(1.125rem, 2vw, 1.5rem);
+  --space-section: clamp(3rem,   8vw,  5rem);
 
   /* ─── Spacing Scale ─── */
   --space-section: 5rem; /* 80px: vertical section padding */

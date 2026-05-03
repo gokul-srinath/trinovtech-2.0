@@ -2,6 +2,7 @@
 
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
+import { Container } from '@/components/shared/Container'
 
 const navItems = [
   { label: 'About Us', href: '#about-us' },
@@ -29,7 +30,7 @@ export default function Navbar() {
   }, [menuOpen])
 
   return (
-    <header className="fixed left-1/2 top-4 z-50 w-[90%] sm:w-[80%] xl:w-[1320px] max-w-[1320px] -translate-x-1/2 rounded-[14px] border border-[rgba(44,62,145,0.15)] bg-[#eef4fb] shadow-[0_8px_32px_-8px_rgba(15,23,42,0.14)] transition-shadow duration-300">
+    <header className="fixed left-1/2 top-4 z-50 w-[90%] max-w-[1320px] -translate-x-1/2 rounded-[14px] border border-[rgba(44,62,145,0.15)] bg-[#eef4fb] shadow-[0_8px_32px_-8px_rgba(15,23,42,0.14)] transition-shadow duration-300">
       <div className="flex h-[68px] items-center gap-2 px-4 sm:px-5">
         <a href="/" className="flex shrink-0 items-center">
           <span

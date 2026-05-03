@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { Container } from '@/components/shared/Container'
 
 const contactItems = [
     { icon: '/mail.svg', title: 'Email', value: 'info@trinovtech.in', href: 'mailto:info@trinovtech.in' },
@@ -35,11 +36,11 @@ const services = [
 export default function Footer() {
     return (
         <footer style={{ backgroundColor: '#dce8f2', overflow: 'hidden' }} className="text-slate-900">
-            <div className="mx-auto max-w-7xl px-6 pt-10 pb-0 lg:px-12">
+            <Container className="pt-10 pb-0">
                 <div className="flex flex-col">
 
                     {/* Contact cards + nav links */}
-                    <div className="flex flex-col gap-10 lg:flex-row lg:justify-between">
+                    <div className="flex flex-col gap-10 lg:flex-row lg:justify-between lg:items-start">
 
                         {/* Contact cards */}
                         <div className="flex flex-col gap-3 w-full max-w-[320px] shrink-0">
@@ -67,9 +68,9 @@ export default function Footer() {
                         </div>
 
                         {/* Nav columns */}
-                        <div className="grid grid-cols-3 gap-6 lg:self-start w-full lg:w-[700px]">
+                        <div className="grid grid-cols-3 gap-3 lg:self-start">
                             <div>
-                                <p className="mb-4 text-sm font-semibold tracking-widest" style={{ color: '#8fa3b1' }}>Headings</p>
+                                <p className="mb-0 text-sm font-semibold tracking-widest" style={{ color: '#8fa3b1' }}>Headings</p>
                                 <ul>
                                     {headings.map((item) => (
                                         <li key={item.href}>
@@ -81,7 +82,7 @@ export default function Footer() {
                                 </ul>
                             </div>
                             <div>
-                                <p className="mb-4 text-sm font-semibold tracking-widest" style={{ color: '#8fa3b1' }}>Solutions</p>
+                                <p className="mb-0 text-sm font-semibold tracking-widest" style={{ color: '#8fa3b1' }}>Solutions</p>
                                 <ul>
                                     {solutions.map((item) => (
                                         <li key={item.href}>
@@ -93,7 +94,7 @@ export default function Footer() {
                                 </ul>
                             </div>
                             <div>
-                                <p className="mb-4 text-sm font-semibold tracking-widest" style={{ color: '#8fa3b1' }}>Services</p>
+                                <p className="mb-0 text-sm font-semibold tracking-widest" style={{ color: '#8fa3b1' }}>Services</p>
                                 <ul>
                                     {services.map((item) => (
                                         <li key={item.href}>
@@ -119,7 +120,7 @@ export default function Footer() {
                     </div>
 
                 </div>
-            </div>
+            </Container>
         </footer>
     )
 }
