@@ -19,9 +19,9 @@ export const servicesSections: Section[] = [
         {
           svgPath: '/services/svg1.svg',
           animatedSvg: 'svg1',
-          heading: 'Embedded Systems & IoT',
+          heading: 'Mobile App Development',
           description:
-            'From firmware development to full IoT platform integration, we build reliable embedded solutions that connect hardware to the cloud. Our team handles everything from sensor interfacing to real-time data pipelines.',
+            'We develop secure, scalable mobile applications tailored to your business needs. Our team designs and builds native iOS and Android apps with intuitive interfaces and seamless performance, ensuring a smooth user experience across platforms.',
         },
         {
           svgPath: '/services/svg4.svg',
@@ -38,9 +38,8 @@ export const servicesSections: Section[] = [
         {
           svgPath: '/services/svg5.svg',
           animatedSvg: 'svg5',
-          heading: 'Full-Stack Product Development',
-          description:
-            'From concept to production, we design and build scalable web and mobile products. Our cross-functional teams cover UX design, frontend, backend, and QA — delivering complete, production-ready software.',
+          heading: 'Cloud Operations',
+          description:'We monitor, manage, and optimize your cloud infrastructure, ensuring high availability, performance, and cost efficiency. so you can focus on your core business while we handle the rest.',
         },
       ],
     },
