@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { Container } from '@/components/shared/Container'
 
 interface SolutionDetailHeroProps {
   heading: string
@@ -10,7 +11,7 @@ interface SolutionDetailHeroProps {
 export function SolutionDetailHero({ heading, highlight, tail, imagePath }: SolutionDetailHeroProps) {
   return (
     <section
-      className="w-full relative overflow-visible"
+      className="w-full relative overflow-hidden"
       style={{
         height: 'clamp(320px, 45vw, 520px)',
         background: '#1f7a63',
@@ -30,14 +31,8 @@ export function SolutionDetailHero({ heading, highlight, tail, imagePath }: Solu
         />
       </div>
 
-      {/* Text content -- vertically centered, left side */}
-      <div
-        className="relative z-10 flex items-center h-full"
-        style={{
-          paddingLeft: 'clamp(20px, 8vw, 120px)',
-          paddingRight: '20px',
-        }}
-      >
+      {/* Text content -- inside Container for consistent alignment */}
+      <Container className="relative z-10 flex items-center h-full">
         <h1
           className="max-w-[90%] md:max-w-[42%]"
           style={{
@@ -52,7 +47,7 @@ export function SolutionDetailHero({ heading, highlight, tail, imagePath }: Solu
           {highlight && <span style={{ color: 'var(--heading1)' }}>{highlight}</span>}
           {tail && <>{' '}{tail}</>}
         </h1>
-      </div>
+      </Container>
     </section>
   )
 }
