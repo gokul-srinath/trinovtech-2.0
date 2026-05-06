@@ -18,18 +18,7 @@ export function SolutionServices({ heading, services }: SolutionServicesProps) {
   return (
     <section className="w-full py-12 md:py-20" style={{ background: 'var(--heading2)' }}>
       <Container>
-        <h2
-          className="mb-8 md:mb-12 text-center"
-          style={{
-            color: '#fff',
-            fontFamily: 'Inter, sans-serif',
-            fontSize: 'clamp(1.75rem, 3.5vw, 2.5rem)',
-            fontWeight: 700,
-            lineHeight: '1.2',
-          }}
-        >
-          {heading}
-        </h2>
+        <div className='flex flex-col gap-12'>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
           {services.map((service, idx) => (
             <div
@@ -83,6 +72,21 @@ export function SolutionServices({ heading, services }: SolutionServicesProps) {
               )}
             </div>
           ))}
+         
+        </div>
+        <div className='border-t border-white/55'></div>
+        <h2
+          className="mb-8 md:mb-12 text-center"
+          style={{
+            color: '#fff',
+            fontFamily: 'Inter, sans-serif',
+            fontSize: 'clamp(1.75rem, 3.5vw, 2.5rem)',
+            fontWeight: 700,
+            lineHeight: '1.2',
+          }}
+        >
+          {heading}
+        </h2>
         </div>
       </Container>
     </section>

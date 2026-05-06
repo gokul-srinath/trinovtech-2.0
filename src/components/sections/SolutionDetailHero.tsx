@@ -14,7 +14,7 @@ export function SolutionDetailHero({ heading, highlight, tail, imagePath }: Solu
       className="w-full relative overflow-hidden"
       style={{
         height: 'clamp(320px, 45vw, 520px)',
-        background: '#1f7a63',
+        background: '#1f7a63'
       }}
     >
       {/* Background image -- right half, hidden on mobile */}
@@ -41,6 +41,7 @@ export function SolutionDetailHero({ heading, highlight, tail, imagePath }: Solu
             fontWeight: 900,
             lineHeight: 1.3,
             color: '#fff',
+            textTransform: 'capitalize',
           }}
         >
           {heading}{' '}

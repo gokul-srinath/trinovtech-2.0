@@ -7,7 +7,7 @@ interface SolutionIntroProps {
 
 export function SolutionIntro({ heading, description }: SolutionIntroProps) {
   return (
-    <section className="w-full py-12 md:py-20" style={{ background: '#EDFFE4' }}>
+    <section className="w-full py-12 md:py-20" style={{ background: '#EDFFE4', paddingLeft: 'clamp(20px, 8vw, 120px)', paddingRight: 'clamp(20px, 4vw, 60px)' }}>
       <Container>
         <div className="flex flex-col gap-6 max-w-[1100px]">
           <h2
@@ -30,7 +30,12 @@ export function SolutionIntro({ heading, description }: SolutionIntroProps) {
               lineHeight: '1.6',
             }}
           >
-            {description}
+            {description.split('\n').map((line, index) => (
+              <span key={index}>
+                {line}
+                {index < description.split('\n').length - 1 && <br />}
+              </span>
+            ))}
           </p>
         </div>
       </Container>

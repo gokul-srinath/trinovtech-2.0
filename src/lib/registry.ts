@@ -20,7 +20,7 @@ export const REGISTRY = {
     import('@/components/sections/QuoteCard').then((mod) => mod.QuoteCard)
   ),
   services_grid: dynamic(() =>
-    import('@/components/sections/ServicesGrid').then((mod) => mod.ServicesGrid)
+    import('@/components/sections/services/ServicesGrid').then((mod) => mod.ServicesGrid)
   ),
   scroll_scrub: dynamic(() =>
     import('@/components/sections/ScrollScrubSection').then(
@@ -40,10 +40,10 @@ export const REGISTRY = {
     import('@/components/sections/FAQ').then((mod) => mod.FAQ)
   ),
   about_us_hero: dynamic(() =>
-    import('@/components/sections/AboutUsHero').then((mod) => mod.AboutUsHero)
+    import('@/components/sections/Aboutus/AboutUsHero').then((mod) => mod.AboutUsHero)
   ),
   about_us_card: dynamic(() =>
-    import('@/components/sections/AboutUsCard').then((mod) => mod.AboutUsCard)
+    import('@/components/sections/Aboutus/AboutUsCard').then((mod) => mod.AboutUsCard)
   ),
   solutions_hero: dynamic(() =>
     import('@/components/sections/SolutionsHero').then((mod) => mod.SolutionsHero)
@@ -52,10 +52,10 @@ export const REGISTRY = {
     import('@/components/sections/SolutionsCard').then((mod) => mod.SolutionsCard)
   ),
   services_hero: dynamic(() =>
-    import('@/components/sections/ServicesHero').then((mod) => mod.ServicesHero)
+    import('@/components/sections/services/ServicesHero').then((mod) => mod.ServicesHero)
   ),
   services_carousel: dynamic(() =>
-    import('@/components/sections/ServicesCarousel').then((mod) => mod.ServicesCarousel)
+    import('@/components/sections/services/ServicesCarousel').then((mod) => mod.ServicesCarousel)
   ),
   solution_detail_hero: dynamic(() =>
     import('@/components/sections/SolutionDetailHero').then((mod) => mod.SolutionDetailHero)

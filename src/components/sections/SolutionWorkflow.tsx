@@ -12,7 +12,7 @@ interface SolutionWorkflowProps {
 
 export function SolutionWorkflow({ heading, steps }: SolutionWorkflowProps) {
   return (
-    <section className="w-full py-12 md:py-20" style={{ background: '#EDFFE4' }}>
+    <section className="w-full py-12 md:py-20" style={{ background: '#EDFFE4', paddingLeft: 'clamp(20px, 8vw, 120px)', paddingRight: 'clamp(20px, 4vw, 60px)' }}>
       <Container>
         <h2
           className="mb-8 md:mb-12"

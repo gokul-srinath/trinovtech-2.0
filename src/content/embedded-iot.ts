@@ -16,8 +16,7 @@ export const embeddedIotSections: Section[] = [
     type: 'solution_intro',
     props: {
       heading: 'Embedded Systems & IoT Solutions',
-      description:"We design and build robust embedded systems and IoT solutions tailored for real-world performance. From hardware architecture to firmware and cloud integration, our approach ensures seamless connectivity, reliability, and scalability across industries. Every solution is engineered to handle practical field challenges while maintaining high efficiency and long-term stability. \
-Our team brings deep expertise in system design, PCB development, firmware engineering, and Linux-based platforms—enabling complete product development under one roof. We focus on delivering optimized, production-ready solutions that integrate smoothly with your ecosystem and evolve with your business needs."
+      description:"We design and build robust embedded systems and IoT solutions tailored for real-world performance. From hardware architecture to firmware and cloud integration, our approach ensures seamless connectivity, reliability, and scalability across industries. Every solution is engineered to handle practical field challenges while maintaining high efficiency and long-term stability.\n\n Our team brings deep expertise in system design, PCB development, firmware engineering, and Linux-based platforms—enabling complete product development under one roof. We focus on delivering optimized, production-ready solutions that integrate smoothly with your ecosystem and evolve with your business needs."
       },
   },
   {

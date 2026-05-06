@@ -14,12 +14,13 @@ export function SolutionQuote({ quote, imagePath }: SolutionQuoteProps) {
           <div className="flex-1">
             <p
               style={{
-                color: '#118496',
-                fontFamily: 'Inter, sans-serif',
-                fontSize: 'clamp(1.25rem, 2.5vw, 2rem)',
-                fontWeight: 700,
+                color: '#3C97AD',
+                fontFamily: 'Poppins, sans-serif',
+                fontSize: 'clamp(1.75rem, 3.5vw, 3rem)',
+                fontWeight: 800,
                 lineHeight: '1.4',
-                fontStyle: 'italic',
+                textAlign: 'center',
+                // fontStyle: 'italic',
               }}
             >
               "{quote}"
