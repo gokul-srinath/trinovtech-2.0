@@ -26,6 +26,14 @@ export type SectionType =
   | 'solutions_card'
   | 'services_hero'
   | 'services_carousel'
+  | 'solution_detail_hero'
+  | 'solution_intro'
+  | 'solution_features'
+  | 'solution_workflow'
+  | 'solution_services'
+  | 'solution_quote'
+  | 'solution_contact'
+  | 'solution_icon_badges'
 
 /**
  * Image asset with optimization metadata

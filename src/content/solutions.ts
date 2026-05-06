@@ -19,7 +19,7 @@ export const solutionsSections: Section[] = [
       text: 'We Are A Trusted Team Building Scalable Solutions Across Modern Platforms.',
       imagePath: '/solutions/img1.png',
       ctaLabel: 'Know More',
-      ctaHref: '#embedded-iot',
+      ctaHref: '/solutions/embedded-iot-systems',
       ctaColor: '#118496',
       invert: false,
     },

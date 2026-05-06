@@ -57,6 +57,30 @@ export const REGISTRY = {
   services_carousel: dynamic(() =>
     import('@/components/sections/ServicesCarousel').then((mod) => mod.ServicesCarousel)
   ),
+  solution_detail_hero: dynamic(() =>
+    import('@/components/sections/SolutionDetailHero').then((mod) => mod.SolutionDetailHero)
+  ),
+  solution_intro: dynamic(() =>
+    import('@/components/sections/SolutionIntro').then((mod) => mod.SolutionIntro)
+  ),
+  solution_features: dynamic(() =>
+    import('@/components/sections/SolutionFeatures').then((mod) => mod.SolutionFeatures)
+  ),
+  solution_workflow: dynamic(() =>
+    import('@/components/sections/SolutionWorkflow').then((mod) => mod.SolutionWorkflow)
+  ),
+  solution_services: dynamic(() =>
+    import('@/components/sections/SolutionServices').then((mod) => mod.SolutionServices)
+  ),
+  solution_quote: dynamic(() =>
+    import('@/components/sections/SolutionQuote').then((mod) => mod.SolutionQuote)
+  ),
+  solution_contact: dynamic(() =>
+    import('@/components/sections/SolutionContact').then((mod) => mod.SolutionContact)
+  ),
+  solution_icon_badges: dynamic(() =>
+    import('@/components/sections/SolutionIconBadges').then((mod) => mod.SolutionIconBadges)
+  ),
 } as const
 
 export type ComponentType = keyof typeof REGISTRY
