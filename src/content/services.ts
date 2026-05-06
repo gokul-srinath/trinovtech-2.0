@@ -18,18 +18,26 @@ export const servicesSections: Section[] = [
       slides: [
         {
           svgPath: '/services/svg1.svg',
+          animatedSvg: 'svg1',
           heading: 'Embedded Systems & IoT',
           description:
             'From firmware development to full IoT platform integration, we build reliable embedded solutions that connect hardware to the cloud. Our team handles everything from sensor interfacing to real-time data pipelines.',
         },
         {
-          svgPath: '/services/svg2.svg',
-          heading: 'Cloud & DevOps',
+          svgPath: '/services/svg4.svg',
+          animatedSvg: 'svg4',
+          heading: 'Cloud Infrastructure Engineering',
+          bgColor: '#F1F5F9',
+          textColor: '#36445A',
+          borderColor: 'var(--heading1, #2D9CDB)',
+          svgFillColor: '#36445A',
+          invert: true,
           description:
-            'We architect, migrate, and manage cloud infrastructure on AWS, Azure, and GCP. Our DevOps practice automates CI/CD pipelines, infrastructure-as-code, and monitoring so your team ships faster with confidence.',
+            'We Are A Trusted Team Building Scalable Solutions Across Modern Platforms.',
         },
         {
-          svgPath: '/services/svg3.svg',
+          svgPath: '/services/svg5.svg',
+          animatedSvg: 'svg5',
           heading: 'Full-Stack Product Development',
           description:
             'From concept to production, we design and build scalable web and mobile products. Our cross-functional teams cover UX design, frontend, backend, and QA — delivering complete, production-ready software.',

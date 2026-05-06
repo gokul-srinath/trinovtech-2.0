@@ -48,7 +48,7 @@ export function VideoSection({ videoPath, mobileVideoPath }: VideoSectionProps) 
         muted
         loop
         playsInline
-        preload="auto"
+        preload="metadata"
         onCanPlayThrough={() => setStatus('ready')}
         onError={() => setStatus('error')}
         style={{

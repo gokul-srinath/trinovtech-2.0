@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { Container } from '@/components/shared/Container'
 
 interface ServiceItem {
@@ -40,7 +41,15 @@ export function ServicesGrid({ heading, items, columns = 3 }: ServicesGridProps)
               }}
             >
               {item.assetPath && (
-                <img src={item.assetPath} alt={item.heading} className="w-full h-48 object-cover rounded-md mb-4" />
+                <div className="relative w-full h-48 mb-4">
+                  <Image
+                    src={item.assetPath}
+                    alt={item.heading}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-cover rounded-md"
+                  />
+                </div>
               )}
               <h3 style={{ fontFamily: 'Poppins, sans-serif', fontSize: 'var(--text-h3)', fontWeight: 700, marginBottom: '8px', color: '#1A1A1A' }}>
                 {item.heading}

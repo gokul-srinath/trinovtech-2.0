@@ -1,106 +1,101 @@
 'use client'
 
-import Image from 'next/image'
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useEffect, useRef } from 'react'
 import { Container } from '@/components/shared/Container'
+import { ServiceCarouselCard } from './ServiceCarouselCard'
 import { Svg1Animated } from './Svg1Animated'
+import { Svg4Animated } from './Svg4Animated'
+import { Svg5Animated } from './Svg5Animated'
 
 interface ServiceSlide {
   svgPath: string
   heading: string
   description: string
+  animatedSvg?: string
+  bgColor?: string
+  textColor?: string
+  borderColor?: string
+  svgFillColor?: string
+  invert?: boolean
 }
 
 interface ServicesCarouselProps {
   slides: ServiceSlide[]
+  autoPlayDelay?: number
 }
 
-export function ServicesCarousel({ slides }: ServicesCarouselProps) {
-  const [active, setActive] = useState(0)
+const SVG_MAP: Record<string, (key: number, fill?: string) => React.ReactNode> = {
+  svg1: (key, fill) => <Svg1Animated animKey={key} fillColor={fill} />,
+  svg4: (key, fill) => <Svg4Animated animKey={key} fillColor={fill} />,
+  svg5: (key, fill) => <Svg5Animated animKey={key} fillColor={fill} />,
+}
 
-  const prev = useCallback(() => setActive((i) => (i - 1 + slides.length) % slides.length), [slides.length])
-  const next = useCallback(() => setActive((i) => (i + 1) % slides.length), [slides.length])
+export function ServicesCarousel({ slides, autoPlayDelay = 3000 }: ServicesCarouselProps) {
+  const [active, setActive] = useState(0)
+  const pausedRef = useRef(false)
+  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null)
+
+  const advance = useCallback(
+    () => setActive((i) => (i + 1) % slides.length),
+    [slides.length],
+  )
+
+  const resetTimer = useCallback(() => {
+    if (timerRef.current) clearInterval(timerRef.current)
+    timerRef.current = setInterval(() => {
+      if (!pausedRef.current) advance()
+    }, autoPlayDelay)
+  }, [advance, autoPlayDelay])
+
+  useEffect(() => {
+    resetTimer()
+    return () => {
+      if (timerRef.current) clearInterval(timerRef.current)
+    }
+  }, [resetTimer])
+
+  const prev = useCallback(() => {
+    setActive((i) => (i - 1 + slides.length) % slides.length)
+    resetTimer()
+  }, [slides.length, resetTimer])
+
+  const next = useCallback(() => {
+    advance()
+    resetTimer()
+  }, [advance, resetTimer])
+
+  const goTo = useCallback(
+    (i: number) => {
+      setActive(i)
+      resetTimer()
+    },
+    [resetTimer],
+  )
 
   const slide = slides[active]
+  const svgFactory = slide.animatedSvg ? SVG_MAP[slide.animatedSvg] : undefined
 
   return (
-    <section className="w-full py-10 md:py-16" style={{ background: 'var(--bg, #FAF9F6)' }}>
+    <section
+      className="w-full py-10 md:py-16"
+      style={{ background: 'var(--bg, #FAF9F6)' }}
+      onMouseEnter={() => { pausedRef.current = true }}
+      onMouseLeave={() => { pausedRef.current = false }}
+    >
       <Container>
-        {/* Card */}
-        <div
-          className="relative w-full overflow-hidden flex flex-col md:flex-row"
-          style={{
-            height: 'clamp(420px, 60vw, 523px)',
-            borderRadius: '30px',
-            border: '3px solid #36445A',
-            background: '#36445A',
-          }}
-        >
-          {/* ── Left: SVG anchored to bottom ── */}
-          <div
-            className="relative shrink-0 w-full md:w-[48%]"
-            style={{ height: 'clamp(260px, 40vw, 523px)' }}
-          >
-            {active === 0 ? (
-              <div className="w-full h-full flex items-end justify-center p-4">
-                <Svg1Animated animKey={active} />
-              </div>
-            ) : (
-              <Image
-                key={slide.svgPath}
-                src={slide.svgPath}
-                alt={slide.heading}
-                fill
-                sizes="(max-width: 768px) 100vw, 48vw"
-                className="object-contain object-bottom"
-                priority
-              />
-            )}
-          </div>
+        <ServiceCarouselCard
+          key={active}
+          svgComponent={svgFactory ? svgFactory(active, slide.svgFillColor) : undefined}
+          svgPath={svgFactory ? undefined : slide.svgPath}
+          heading={slide.heading}
+          description={slide.description}
+          bgColor={slide.bgColor}
+          textColor={slide.textColor}
+          borderColor={slide.borderColor}
+          invert={slide.invert}
+        />
 
-          {/* ── Right: text side ── */}
-          <div
-            className="flex flex-col flex-1 z-10"
-            style={{ padding: 'clamp(28px, 4vw, 52px)' }}
-          >
-            {/* Heading */}
-            <h2
-              style={{
-                fontFamily: 'Inter, sans-serif',
-                fontSize: 'clamp(2rem, 4.5vw, 64px)',
-                fontWeight: 700,
-                fontStyle: 'normal',
-                lineHeight: 'normal',
-                textTransform: 'capitalize',
-                color: '#F1F5F9',
-                marginBottom: '24px',
-              }}
-            >
-              {slide.heading}
-            </h2>
-
-            {/* Description */}
-            <p
-              style={{
-                fontFamily: 'Inter, sans-serif',
-                fontSize: '24px',
-                fontWeight: 700,
-                fontStyle: 'normal',
-                lineHeight: '120.902%',
-                letterSpacing: '1.2px',
-                textTransform: 'capitalize',
-                color: '#F0F6FF',
-              }}
-            >
-              {slide.description}
-            </p>
-
-          </div>
-
-
-        </div>
-
-        {/* Dots + arrows — outside card, bottom center */}
+        {/* Dots + arrows */}
         <div className="flex items-center justify-center gap-3 mt-6">
           <button
             onClick={prev}
@@ -117,7 +112,7 @@ export function ServicesCarousel({ slides }: ServicesCarouselProps) {
             {slides.map((_, i) => (
               <button
                 key={i}
-                onClick={() => setActive(i)}
+                onClick={() => goTo(i)}
                 aria-label={`Go to slide ${i + 1}`}
                 style={{
                   width: i === active ? 28 : 10,

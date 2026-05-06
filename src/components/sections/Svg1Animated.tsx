@@ -17,11 +17,11 @@ const paths = [
 ]
 
 interface Svg1AnimatedProps {
-  /** pass a new key to re-trigger the animation on slide change */
   animKey: number
+  fillColor?: string
 }
 
-export function Svg1Animated({ animKey }: Svg1AnimatedProps) {
+export function Svg1Animated({ animKey, fillColor = '#F1F5F9' }: Svg1AnimatedProps) {
   return (
     <>
       <style>{`
@@ -43,7 +43,7 @@ export function Svg1Animated({ animKey }: Svg1AnimatedProps) {
           <path
             key={i}
             d={d}
-            fill="#F1F5F9"
+            fill={fillColor}
             style={{
               opacity: 0,
               animation: `svgFadeUp 0.45s ease forwards`,

@@ -10,58 +10,47 @@ interface SolutionDetailHeroProps {
 export function SolutionDetailHero({ heading, highlight, tail, imagePath }: SolutionDetailHeroProps) {
   return (
     <section
-      className="w-full relative"
-      style={{ 
-        minHeight: '90vh', 
-        background: '#1f7a63', 
-        paddingTop: 'clamp(80px, 12vh, 120px)',
-        paddingBottom: 'clamp(40px, 8vh, 80px)',
-        overflow: 'visible',
+      className="w-full relative overflow-visible"
+      style={{
+        height: 'clamp(320px, 45vw, 520px)',
+        background: '#1f7a63',
       }}
     >
-      {/* Background Image - Right side, extends beyond container */}
-      <div 
-        className="absolute top-0 bottom-0"
-        style={{ 
-          width: '100%',
-          height: '100%',
-          // rotate: '10deg',
-          // border: '2px solid #fff',
-          right: '-30%',
-          // padding:'0 !important'
-        }}
+      {/* Background image -- right half, hidden on mobile */}
+      <div
+        className="hidden md:block absolute inset-y-0 right-0"
+        style={{ width: '70%' }}
       >
         <Image
           src={imagePath}
           alt="Background"
           fill
-          className="object-cover"
+          className="object-cover object-center"
           priority
         />
       </div>
 
-      {/* Text Content */}
+      {/* Text content -- vertically centered, left side */}
       <div
-        className="relative z-10 flex items-center"
+        className="relative z-10 flex items-center h-full"
         style={{
-          minHeight: 'calc(90vh - clamp(80px, 12vh, 120px) - clamp(40px, 8vh, 80px))',
           paddingLeft: 'clamp(20px, 8vw, 120px)',
-          paddingRight: 'clamp(20px, 8vw, 120px)',
+          paddingRight: '20px',
         }}
       >
         <h1
+          className="max-w-[90%] md:max-w-[42%]"
           style={{
             fontFamily: 'Inter, sans-serif',
-            fontSize: 'clamp(1.6rem, 3.5vw, 3rem)',
+            fontSize: 'clamp(1.4rem, 2.8vw, 2.4rem)',
             fontWeight: 900,
-            lineHeight: 'normal',
+            lineHeight: 1.3,
             color: '#fff',
-            maxWidth: '890px',
           }}
         >
           {heading}{' '}
-          <span style={{ color: 'var(--heading1)' }}>{highlight}</span>
-          {' '}{tail}
+          {highlight && <span style={{ color: 'var(--heading1)' }}>{highlight}</span>}
+          {tail && <>{' '}{tail}</>}
         </h1>
       </div>
     </section>
