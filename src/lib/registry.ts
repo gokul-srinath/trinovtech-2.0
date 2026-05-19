@@ -81,6 +81,18 @@ export const REGISTRY = {
   solution_icon_badges: dynamic(() =>
     import('@/components/sections/SolutionIconBadges').then((mod) => mod.SolutionIconBadges)
   ),
+  blog_hero: dynamic(() =>
+    import('@/components/sections/BlogHero').then((mod) => mod.BlogHero)
+  ),
+  blog_featured: dynamic(() =>
+    import('@/components/sections/BlogFeatured').then((mod) => mod.BlogFeatured)
+  ),
+  blog_grid: dynamic(() =>
+    import('@/components/sections/BlogGrid').then((mod) => mod.BlogGrid)
+  ),
+  services_icon_grid: dynamic(() =>
+    import('@/components/sections/ServicesIconGrid').then((mod) => mod.ServicesIconGrid)
+  ),
 } as const
 
 export type ComponentType = keyof typeof REGISTRY
