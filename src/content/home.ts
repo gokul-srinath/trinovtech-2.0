@@ -16,16 +16,26 @@ export const homeSections: Section[] = [
     },
   },
   {
-    id: 'hero',
-    type: 'hero_card',
+    id: 'services-icon-grid',
+    type: 'services_icon_grid',
     props: {
       heading: 'We Offer End-To-End<br />Tech Consulting Services',
       subtext:
         'We Deliver Complete Tech Solutions, From Concept To Production, Built For Scale And Reliability.',
-      ctaLabel: 'Know More',
-      ctaHref: '#services',
-      assetPath: '/images/image 4-1.png',
-      assetType: 'image',
+      ctaLabel: 'Explore',
+      ctaHref: '/services',
+      moreLabel: 'AND MANY MORE ...',
+      imagePath: '/images/image 4-1.png',
+      services: [
+        { label: 'Artificial Intelligence', svgPath: '/services-icons/ai.svg' },
+        { label: 'Internet Of Things',      svgPath: '/services-icons/iot.svg' },
+        { label: 'Devops & Cloud',          svgPath: '/services-icons/devops.svg' },
+        { label: 'MCU Programming',         svgPath: '/services-icons/mcu.svg' },
+        { label: 'Pcb Designing',           svgPath: '/services-icons/pcb.svg' },
+        { label: 'RTOS Development',        svgPath: '/services-icons/rtos.svg' },
+        { label: 'Mobile App',              svgPath: '/services-icons/mobile.svg' },
+        { label: 'Web App',                 svgPath: '/services-icons/web.svg' },
+      ],
     },
   },
   {

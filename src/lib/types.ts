@@ -34,6 +34,10 @@ export type SectionType =
   | 'solution_quote'
   | 'solution_contact'
   | 'solution_icon_badges'
+  | 'blog_hero'
+  | 'blog_featured'
+  | 'blog_grid'
+  | 'services_icon_grid'
 
 /**
  * Image asset with optimization metadata
